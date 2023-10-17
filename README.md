@@ -85,10 +85,10 @@ As is the case with most software this action is based on the work of others, an
 - [SpicyPizza | create-envfile](https://github.com/SpicyPizza/create-envfile).
 
 ## Maintainers
-This software is maintained by the Developers Italia team.
+This software is maintained by [Conduction b.v.](https://conduction.nl/)
 
 ## License
-© 2022 Gemeente Rotterdam
+© 2023 Gemeente Rotterdam
 
 Licensed under the EUPL. The version control system provides attribution for specific lines of code.
 
