@@ -15,7 +15,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Update publiccode.yaml
+      - name: Deploy Open Catalogi Github Page
         uses: OpenCatalogi/opencatalogi-action@latest
 ````
 
@@ -41,6 +41,15 @@ on:
 permissions:
   contents: write
 ```
+
+> **Note**
+> When you first run the workflow you need to `manually` activate github pages on your repository! Head over to setting -> pages. Select `deploy form a branch` as a source and `gh-pages` as your branche (unles you configured the page to be build in a differend branche)
+> ![Page Settings](docs/page_settings.png)
+> Afther pressing save head over tot the actions and take a look at the `pages build and deployment` action
+> ![Page Action](docs/page_build.png)
+> When it is done it will also tell you under wich link you can find your page
+> ![Page Action done](docs/page_build_done.png)
+
 
 ## Input
 

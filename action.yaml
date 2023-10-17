@@ -14,7 +14,7 @@ inputs:
   github_repository_name_as_prefix:
     description: 'Whether to use the github repository name as a prefix, set to false when using a custom domain'
     required: false
-    default: 'true'
+    default: 'false'
   repository:
     description: 'The github repository to use (could be an external repository)'
     required: false
