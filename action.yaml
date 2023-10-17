@@ -18,7 +18,7 @@ inputs:
   repository:
     description: 'The github repository to use (could be an external repository)'
     required: false
-    default: ${{ github.event.repository.url }}
+    default: ${{ github.event.repository.name }}
   me_url:
     description: 'The me (profile) url used'
     required: false
