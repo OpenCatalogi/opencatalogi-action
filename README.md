@@ -15,7 +15,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Update publiccode.yaml
+      - name: Deploy Open Catalogi Github Page
         uses: OpenCatalogi/opencatalogi-action@latest
 ````
 
@@ -41,6 +41,15 @@ on:
 permissions:
   contents: write
 ```
+
+> **Note**
+> When you first run the workflow you need to `manually` activate github pages on your repository! Head over to setting -> pages. Select `deploy form a branch` as a source and `gh-pages` as your branche (unles you configured the page to be build in a differend branche)
+> ![Page Settings](docs/page_settings.png)
+> Afther pressing save head over tot the actions and take a look at the `pages build and deployment` action
+> ![Page Action](docs/page_build.png)
+> When it is done it will also tell you under wich link you can find your page
+> ![Page Action done](docs/page_build_done.png)
+
 
 ## Input
 
@@ -69,6 +78,29 @@ permissions:
 |-----------------|--------------------------------------------------------------------------|
 | `page`          | A zip of the build page                                                 |
 
+## Tips
+Besides making creating a frontend for your catalogue its also a goed idea to define how your organisation uses open source. Luckily this is verey easilly don by adding the publiccode action to your workflow 
+
+````yaml
+name: My PublicCode Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy Product Github Page
+        uses: OpenCatalogi/productpage-action@1
+      - name: Update opencatalogi.yaml
+        uses: OpenCatalogi/publiccode-action@1
+````
+
+[Read more](https://github.com/marketplace/actions/create-or-update-publiccode-yaml) about the publiccode action that also creates the opencatalogi.yaml
+
 ## Special thanxs
 As is the case with most software this action is based on the work of others, and uses there code. We would like to give a special shout out to the following parties and thier code
 
@@ -76,10 +108,10 @@ As is the case with most software this action is based on the work of others, an
 - [SpicyPizza | create-envfile](https://github.com/SpicyPizza/create-envfile).
 
 ## Maintainers
-This software is maintained by the Developers Italia team.
+This software is maintained by [Conduction b.v.](https://conduction.nl/)
 
 ## License
-© 2022 Gemeente Rotterdam
+© 2023 Conduction B.V.
 
 Licensed under the EUPL. The version control system provides attribution for specific lines of code.
 
