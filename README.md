@@ -78,6 +78,29 @@ permissions:
 |-----------------|--------------------------------------------------------------------------|
 | `page`          | A zip of the build page                                                 |
 
+## Tips
+Besides making creating a frontend for your catalogue its also a goed idea to define how your organisation uses open source. Luckily this is verey easilly don by adding the publiccode action to your workflow 
+
+````yaml
+name: My PublicCode Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy Product Github Page
+        uses: OpenCatalogi/productpage-action@1
+      - name: Update opencatalogi.yaml
+        uses: OpenCatalogi/publiccode-action@1
+````
+
+[Read more](https://github.com/marketplace/actions/create-or-update-publiccode-yaml) about the publiccode action that also creates the opencatalogi.yaml
+
 ## Special thanxs
 As is the case with most software this action is based on the work of others, and uses there code. We would like to give a special shout out to the following parties and thier code
 
@@ -88,7 +111,7 @@ As is the case with most software this action is based on the work of others, an
 This software is maintained by [Conduction b.v.](https://conduction.nl/)
 
 ## License
-© 2023 Gemeente Rotterdam
+© 2023 Conduction B.V.
 
 Licensed under the EUPL. The version control system provides attribution for specific lines of code.
 

@@ -59,6 +59,22 @@ inputs:
     description: 'An base64 encoded svg file or url to the logo used in the main menu'
     required: false
     default: 'https://openwebconcept.nl/wp-content/themes/openwebconcept/assets/src/images/logo@2x.png'
+  contact_tel:
+    description: 'A phone number where your organisation is reachable'
+    required: false
+    default: '012-3456789'
+  contact_email:
+    description: 'A phone number where your organisation is reachable'
+    required: false
+    default: 'info@openwebconcept.nl'
+  contact_website:
+    description: 'A phone number where your organisation is reachable'
+    required: false
+    default: 'https://openwebconcept.nl'
+  contact_adres:
+    description: 'A phone number where your organisation is reachable'
+    required: false
+    default: 'Dorpsplein 1, 1000 AA Zuid-drecht'
   gitname:
     description: 'Git name configuration for bump commit'
     required: false
@@ -97,6 +113,10 @@ runs:
         envkey_GATSBY_NL_DESIGN_THEME_CLASSNAME: ${{ inputs.nl_design_theme_classname }}
         envkey_GATSBY_ARROW_BREADCRUMBS: ${{ inputs.arrow_breadcrumbs }}
         envkey_GATSBY_HEADER_LOGO_URL: ${{ inputs.navbar_logo }}
+        envkey_GATSBY_CONTACT_TEL: ${{ inputs.contact_tel }}
+        envkey_GATSBY_CONTACT_EMAIL: ${{ inputs.contact_email }}
+        envkey_GATSBY_CONTACT_WEBSITE: ${{ inputs.contact_website }}
+        envkey_GATSBY_CONTACT_ADRES: ${{ inputs.contact_adres }}
 
         # envkey_GATSBY_GITHUB_ORGANIZATION_URL: ${{ env.GITHUB_ORGANIZATION_URL }}
         directory: pwa/static
