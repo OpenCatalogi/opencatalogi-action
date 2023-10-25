@@ -7,101 +7,139 @@ branding:
   color: 'blue'
 
 inputs:
+  # Build configuration
   github_pages_branch:
     description: 'The banche on wish the github page wil be build'
     required: false
-    tyoe: string
+    type: string
     default: 'gh-pages'
   github_repository_name_as_prefix:
     description: 'Whether to use the github repository name as a prefix, set to false when using a custom domain'
     required: false
-    tyoe: boolean
+    type: boolean
     default: true
   repository:
     description: 'The github repository to use (could be an external repository)'
     required: false
-    tyoe: string
+    type: string
     default: ${{ github.event.repository.name }}
+  pull_from_branche:
+    description: 'The branche on witch to base the build e.g. main or development'
+    required: false
+    type: string
+    default: 'main'
+
+  # Old settings (depracticed)
   me_url:
     description: 'The me (profile) url used'
     required: false
-    tyoe: string
+    type: string
     default: 'https://api.opencatalogi.nl/api/users/me'
   api_url:
     description: 'The location of the open catalogi api (change if you are running your own api)'
     required: false
-    tyoe: string
+    type: string
     default: 'https://api.opencatalogi.nl/api'
   admin_url:
     description: 'The admin (dashboard) url used'
     required: false
-    tyoe: string
+    type: string
     default: 'https://api.opencatalogi.nl/admin'
   base_url:
     description: 'The BASE location of the open catalogi api (change if you are running your own api)'
     required: false
-    tyoe: string
+    type: string
     default: 'https://api.opencatalogi.nl'
   frontend_url:
     description: 'the location (url) of this open catalogi installation'
     required: false
-    tyoe: string
+    type: string
     default: 'https://api.opencatalogi.nl'
   login_redirect:
     description: 'publiccode.yml path'
     required: false
-    tyoe: string
+    type: string
     default: 'vault'
   admin_dashboard_url:
     description: 'the location of the pen catalogi dashboard'
     required: false
-    tyoe: string
+    type: string
     default: 'https://admin.opencatalogi.nl'
+
+  # General
+  favicon_logo:
+    description: 'An base64 encoded svg file or url to the logo used as favicon'
+    required: false
+    type: string
+    default: 'https://openwebconcept.nl/wp-content/themes/openwebconcept/assets/src/images/logo@2x.png'
   nl_design_theme_classname:
     description: 'the class name of the desired nl design theme'
     required: false
-    tyoe: string
+    type: string
     default: 'open-webconcept-theme'
   arrow_breadcrumbs:
     description: 'whether to use arrow breadcrums instead of the normal breadcrumbs'
     required: false
-    tyoe: boolean
+    type: boolean
     default: false
+  start_page:
+    description: 'When given shows a readme file instead of the normal start page'
+    required: false
+    type: string
+    default: 'https://github.com/OpenCatalogi/web-app/blob/development/README.md'
+  # Header
   navbar_logo:
     description: 'An base64 encoded svg file or url to the logo used in the main menu'
     required: false
-    tyoe: string
+    type: string
     default: 'https://openwebconcept.nl/wp-content/themes/openwebconcept/assets/src/images/logo@2x.png'
-  contact_tel:
-    description: 'A phone number where your organisation is reachable'
+  navbar_show_login:
+    description: 'Shows the inloggen option'
     required: false
-    tyoe: string
-    default: '012-3456789'
-  contact_email:
-    description: 'A phone number where your organisation is reachable'
+    type: boolean
+    default: fasle
+  navbar_content:
+    description: 'An link to the json file that manages the footer content'
     required: false
-    tyoe: string
-    default: 'info@openwebconcept.nl'
-  contact_website:
-    description: 'A phone number where your organisation is reachable'
+    type: string
+    default: 'https://raw.githubusercontent.com/OpenCatalogi/web-app/348679b7537b20e51767dfdc6086349602afe219/pwa/src/templates/templateParts/header/HeaderContent.json'
+  # Jumbotran
+
+  # Footer
+  footer_logo:
+    description: 'An base64 encoded svg file or url to the logo used in the footer'
     required: false
-    tyoe: string
-    default: 'https://openwebconcept.nl'
-  contact_adres:
-    description: 'A phone number where your organisation is reachable'
+    type: string
+    default: 'https://openwebconcept.nl/wp-content/themes/openwebconcept/assets/src/images/logo@2x.png'
+  footer_content:
+    description: 'An link to the json file that manages the footer content'
     required: false
-    tyoe: string
-    default: 'Dorpsplein 1, 1000 AA Zuid-drecht'
-  gitname:
-    description: 'Git name configuration for bump commit'
+    type: string
+    default: 'https://raw.githubusercontent.com/OpenCatalogi/web-app/25995205e1dbb043822d1c58c5c23f8e6f77ff7e/pwa/src/templates/templateParts/footer/FooterContent.json'
+  footer_show_creator:
+    description: 'Shows the <> with love from conduction link'
     required: false
-    tyoe: string
+    type: boolean
+    default: true
+
+
+  # git configuration
+  git_name:
+    description: 'Git name configuration for the commit'
+    required: false
+    type: string
     default: 'Open Catalogi bot'
-  gitmail:
-    description: 'Git mail configuration for bump commit'
+  git_mail:
+    description: 'Git mail configuration for the commit'
     required: false
-    tyoe: string
+    type: string
     default: 'bot@opencatalogi.nl'
+  git_commit_message:
+    description: 'The description for the  commit'
+    required: false
+    type: string
+    default: ${{ github.event.repository.html_url }}
+
 
 outputs:
   page:
@@ -114,7 +152,7 @@ runs:
       uses: actions/checkout@v2
       with:
         repository: OpenCatalogi/web-app
-        ref: development
+        ref: ${{ inputs.pull_from_branche }}
 
     # With special thanxs to https://github.com/SpicyPizza/create-envfile
     - name: Make envfile
@@ -122,6 +160,7 @@ runs:
       with:
         envkey_GATSBY_USE_GITHUB_REPOSITORY_NAME_AS_PATH_PREFIX: ${{ inputs.github_repository_name_as_prefix }}
         envkey_GATSBY_GITHUB_REPOSITORY_NAME: ${{ inputs.repository }}
+        envkey_GATSBY_OPTIONAL_START_PAGE: ${{ inputs.start_page }}
         envkey_GATSBY_ME_URL: ${{ inputs.me_url }}
         envkey_GATSBY_API_URL: ${{ inputs.api_url }}
         envkey_GATSBY_ADMIN_URL: ${{ inputs.admin_url }}
@@ -131,13 +170,15 @@ runs:
         envkey_GATSBY_ADMIN_DASHBOARD_URL: ${{ inputs.admin_dashboard_url }}
         envkey_GATSBY_NL_DESIGN_THEME_CLASSNAME: ${{ inputs.nl_design_theme_classname }}
         envkey_GATSBY_ARROW_BREADCRUMBS: ${{ inputs.arrow_breadcrumbs }}
+        envkey_GATSBY_FAVICON_URL: ${{ inputs.favicon_logo }}
         envkey_GATSBY_HEADER_LOGO_URL: ${{ inputs.navbar_logo }}
-        envkey_GATSBY_CONTACT_TEL: ${{ inputs.contact_tel }}
-        envkey_GATSBY_CONTACT_EMAIL: ${{ inputs.contact_email }}
-        envkey_GATSBY_CONTACT_WEBSITE: ${{ inputs.contact_website }}
-        envkey_GATSBY_CONTACT_ADRES: ${{ inputs.contact_adres }}
-
+        envkey_GATSBY_HEADER_SHOW_LOGIN: ${{ inputs.navbar_show_login }}
+        envkey_GATSBY_HEADER_CONTENT: ${{ inputs.navbar_content }}
+        envkey_GATSBY_FOOTER_LOGO_URL: ${{ inputs.footer_logo }}
+        envkey_GATSBY_FOOTER_SHOW_CREATOR: ${{ inputs.footer_show_creator }}
+        envkey_GATSBY_FOOTER_CONTENT: ${{ inputs.footer_content }}
         # envkey_GATSBY_GITHUB_ORGANIZATION_URL: ${{ env.GITHUB_ORGANIZATION_URL }}
+
         directory: pwa/static
         file_name: .env.production
         fail_on_empty: true
@@ -165,4 +206,7 @@ runs:
       with:
         branch: ${{ inputs.github_pages_branch }}
         folder: pwa/public
+        git-config-name: ${{ inputs.git-name }}
+        git-config-email: ${{ inputs.git-mail }}
+        commit-message: ${{ inputs.git-commit-message }}
 
