@@ -4,7 +4,6 @@ name: Git Version
 on:
   push:
     branches:
-      - master
       - main
       - development
 

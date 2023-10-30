@@ -86,7 +86,8 @@ inputs:
     description: 'When given shows a readme file instead of the normal start page'
     required: false
     type: string
-    default: 'https://github.com/OpenCatalogi/web-app/blob/development/README.md'
+    default: 'false'
+    
   # Header
   navbar_logo:
     description: 'An base64 encoded svg file or url to the logo used in the main menu'

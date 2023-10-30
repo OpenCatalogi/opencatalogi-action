@@ -101,6 +101,25 @@ jobs:
 
 [Read more](https://github.com/marketplace/actions/create-or-update-publiccode-yaml) about the publiccode action that also creates the opencatalogi.yaml
 
+## Working with branche protection
+Keep in mind that this action creates/updates a file and force pushes into the beanche it was run on. It is therfore incompatible with github branche protection ON THE SAME branche. You can hower the wrokflow to start higher up in the branche tree to circumvent this. e.g. if you normaly work with a branche setup like:
+
+- Master (protected)
+- - Development (protected)
+- - - Feature-1
+- - - Feature-1
+
+You can configure the workflow to trigger on
+
+````yaml
+on:
+  push:
+    branches:
+      - 'feature-*'
+````
+
+The adjusted publiccode or opencatalogi files will then come allong in you normal pull requests from `feature-x` to `developement`etc.
+
 ## Special thanxs
 As is the case with most software this action is based on the work of others, and uses there code. We would like to give a special shout out to the following parties and thier code
 
