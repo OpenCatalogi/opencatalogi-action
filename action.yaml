@@ -144,7 +144,7 @@ inputs:
     description: 'The repository to wich the results are limited (used to only look in your own organisation)'
     required: false
     type: string
-    default: ${{ github.repository_owner }}
+    default: 'https://github.com/${{ github.repository_owner }}'
 
 
 outputs:
