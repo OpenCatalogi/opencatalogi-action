@@ -156,6 +156,7 @@ runs:
   steps:
     # Lets check al the environment variables that we are using
     - name: Print env variables
+      shell: bash
       run: env | sort
     - name: Get the Open Catalogi Web APP
       uses: actions/checkout@v2
