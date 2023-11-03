@@ -53,23 +53,44 @@ permissions:
 
 ## Input
 
-| Input Name                          | Description                                                                   | Default Value                                                            |
-|------------------------------------|-------------------------------------------------------------------------------|--------------------------------------------------------------------------|
-| `github_pages_branch`               | The branch on which the GitHub page will be built (Optional)                | `gh-pages`                                                               |
-| `github_repository_name_as_prefix`  | Whether to use the GitHub repository name as a prefix (Optional)             | `true`                                                                   |
-| `repository`                        | The GitHub repository to use (could be an external repository) (Optional)   | `github.event.repository.url`                                            |
-| `me_url`                            | The profile URL used (Optional)                                            | `https://api.opencatalogi.nl/api/users/me`                                |
-| `api_url`                           | The location of the Open Catalogi API (change if you are running your own API) (Optional) | `https://api.opencatalogi.nl/api`                          |
-| `admin_url`                         | The admin (dashboard) URL used (Optional)                                   | `https://api.opencatalogi.nl/admin`                                       |
-| `base_url`                          | The BASE location of the Open Catalogi API (change if you are running your own API) (Optional) | `https://api.opencatalogi.nl`                          |
-| `frontend_url`                      | The location (URL) of this Open Catalogi installation (Optional)            | `https://api.opencatalogi.nl`                                            |
-| `login_redirect`                    | The path for login redirection (Optional)                                  | `vault`                                                                  |
-| `admin_dashboard_url`               | The location of the Open Catalogi dashboard (Optional)                      | `https://admin.opencatalogi.nl`                                          |
-| `nl_design_theme_classname`         | The class name of the desired NL design theme (Optional)                   | `open-webconcept-theme`                                                  |
-| `arrow_breadcrumbs`                 | Whether to use arrow breadcrumbs instead of the normal breadcrumbs (Optional) | `false`                                                             |
-| `navbar_logo`                       | A base64 encoded SVG file or URL to the logo used in the main menu (Optional)| `https://openwebconcept.nl/wp-content/themes/openwebconcept/assets/src/images/logo@2x.png` |
-| `gitname`                           | Git name configuration for bump commit (Optional)                            | `Open Catalogi bot`                                                     |
-| `gitmail`                           | Git mail configuration for bump commit (Optional)                            | `bot@opencatalogi.nl`                                                   |
+## Inputs
+
+| Input Name                          | Description                                                                                             | Required | Type    | Default Value                                                            |
+|------------------------------------|---------------------------------------------------------------------------------------------------------|----------|---------|--------------------------------------------------------------------------|
+| `github_pages_branch`               | The branch on which the GitHub page will be built (Optional)                                            | No       | string  | `gh-pages`                                                               |
+| `github_repository_name_as_prefix`  | Whether to use the GitHub repository name as a prefix (Optional)                                        | No       | boolean | `true`                                                                   |
+| `repository`                        | The GitHub repository to use (could be an external repository) (Optional)                               | No       | string  | `${{ github.event.repository.name }}`                                     |
+| `pull_from_branche`                | The branch on which to base the build (Optional)                                                        | No       | string  | `main`                                                                   |
+| `me_url`                            | The profile URL used (Optional)                                                                         | No       | string  | `https://api.opencatalogi.nl/api/users/me`                                |
+| `api_url`                           | The location of the Open Catalogi API (change if you are running your own API) (Optional)               | No       | string  | `https://api.opencatalogi.nl/api`                          |
+| `admin_url`                         | The admin (dashboard) URL used (Optional)                                                               | No       | string  | `https://api.opencatalogi.nl/admin`                                       |
+| `base_url`                          | The BASE location of the Open Catalogi API (change if you are running your own API) (Optional)          | No       | string  | `https://api.opencatalogi.nl`                          |
+| `frontend_url`                      | The location (URL) of this Open Catalogi installation (Optional)                                        | No       | string  | `https://api.opencatalogi.nl`                                            |
+| `login_redirect`                    | The path for login redirection (Optional)                                                               | No       | string  | `vault`                                                                  |
+| `admin_dashboard_url`               | The location of the Open Catalogi dashboard (Optional)                                                  | No       | string  | `https://admin.opencatalogi.nl`                                          |
+| `nl_design_theme_classname`         | The class name of the desired NL design theme (Optional)                                                | No       | string  | `open-webconcept-theme`                                                  |
+| `arrow_breadcrumbs`                 | Whether to use arrow breadcrumbs instead of the normal breadcrumbs (Optional)                           | No       | boolean | `false`                                                             |
+| `start_page`                        | When given, shows a readme file instead of the normal start page (Optional)                             | No       | string  | `false`                                                                 |
+| `favicon_logo`                      | A base64 encoded SVG file or URL to the logo used as favicon (Optional)                                 | No       | string  | `https://openwebconcept.nl/wp-content/themes/openwebconcept/assets/src/images/logo@2x.png` |
+| `page_title`                        | The title for the website / gitpage (Optional)                                                          | No       | string  | `${{ github.event.repository.name }}`                                     |
+| `navbar_logo`                       | An base64 encoded SVG file or URL to the logo used in the main menu (Optional)                          | No       | string  | `https://openwebconcept.nl/wp-content/themes/openwebconcept/assets/src/images/logo@2x.png` |
+| `navbar_show_login`                 | Shows the inloggen option (Optional)                                                                    | No       | boolean | `false`                                                                 |
+| `navbar_content`                    | A link to the JSON file that manages the footer content (Optional)                                      | No       | string  | `https://raw.githubusercontent.com/OpenCatalogi/web-app/348679b7537b20e51767dfdc6086349602afe219/pwa/src/templates/templateParts/header/HeaderContent.json` |
+| `jumbotron_title`                   | The title of the jumbotron (Optional)                                                                   | No       | string  | `${{ github.event.repository.name }}`                                     |
+| `jumbotron_subtitle`                | The (short) subtitle used in the jumbotron (Optional)                                                   | No       | string  | `Product page`                                                           |
+| `jumbotron_description`             | The (long) description included in the jumbotron (Optional)                                             | No       | string  | `${{ github.event.repository.description }}`                               |
+| `jumbotron_searchform`              | Whether or not to display the search form in the jumbotron (Optional)                                   | No       | boolean | `false`                                                                 |
+| `jumbotron_iscard`                  | Put the content of the jumbotron within a card (Optional)                                               | No       | boolean | `false`                                                                 |
+| `jumbotron_image_placement`         | The position of the jumbotron image ("false", "background","right" ,"left") (Optional)                  | No       | string  | `false`                                                                 |
+| `jumbotron_image_url`               | An base64 encoded SVG file or URL to the logo used in the jumbotron (Optional)                          | No       | string  | `false`                                                                 |
+| `footer_logo`                       | An base64 encoded SVG file or URL to the logo used in the footer (Optional)                             | No       | string  | `https://openwebconcept.nl/wp-content/themes/openwebconcept/assets/src/images/logo@2x.png` |
+| `footer_content`                    | A link to the JSON file that manages the footer content (Optional)                                      | No       | string  | `https://raw.githubusercontent.com/OpenCatalogi/web-app/25995205e1dbb043822d1c58c5c23f8e6f77ff7e/pwa/src/templates/templateParts/footer/FooterContent.json` |
+| `footer_show_creator`               | Shows the "With love from conduction" link in the footer (Optional)                                     | No       | boolean | `true`                                                                  |
+| `git_name`                          | Git name configuration for the commit (Optional)                                                        | No       | string  | `Open Catalogi bot`                                                     |
+| `git_mail`                          | Git mail configuration for the commit (Optional)                                                        | No       | string  | `bot@opencatalogi.nl`                                                   |
+| `git_commit_message`                | The description for the commit (Optional)                                                               | No       | string  | `${{ github.event.repository.html_url }}`                                 |
+| `github_organization_url`           | The repository to which the results are limited (used to only look in your own organisation) (Optional) | No       | string  | `https://github.com/${{ github.repository_owner }}`                       |
+
 
 
 ## Output
