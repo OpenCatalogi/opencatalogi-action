@@ -72,6 +72,11 @@ inputs:
     required: false
     type: string
     default: 'https://openwebconcept.nl/wp-content/themes/openwebconcept/assets/src/images/logo@2x.png'
+  page_title:
+    description: 'The title for the website / gitpage'
+    required: false
+    type: string
+    default: ${{ github.event.repository.name }}
   nl_design_theme_classname:
     description: 'the class name of the desired nl design theme'
     required: false
@@ -104,7 +109,43 @@ inputs:
     required: false
     type: string
     default: 'https://raw.githubusercontent.com/OpenCatalogi/web-app/348679b7537b20e51767dfdc6086349602afe219/pwa/src/templates/templateParts/header/HeaderContent.json'
+
   # Jumbotran
+  jumbotron_title:
+    description: 'The title of the jumbotron'
+    required: false
+    type: string
+    default: ${{ github.event.repository.name }}
+  jumbotron_subtitle:
+    description: 'The (short) subtitle used in  the jumbotron'
+    required: false
+    type: string
+    default: 'Product page'
+  jumbotron_description:
+    description: 'The (long) description included in the jumbotron)'
+    required: false
+    type: string
+    default: ${{ github.event.repository.description }}
+  jumbotron_searchform:
+    description: 'Whether or not to display the search form'
+    required: false
+    type: boolean
+    default: false
+  jumbotron_iscard:
+    description: 'Put the content o the jumbotron within a card'
+    required: false
+    type: boolean
+    default: false
+  jumbotron_image_placement:
+    description: 'The position of the jumbotron image ("false" | "background" | "right" | "left")'
+    required: false
+    type: string
+    default: "false"
+  jumbotron_image_url:
+    description: 'An base64 encoded svg file or url to the logo used in the jumbotron'
+    required: false
+    type: string
+    default: "false"
 
   # Footer
   footer_logo:
@@ -122,7 +163,6 @@ inputs:
     required: false
     type: boolean
     default: true
-
 
   # git configuration
   git_name:
@@ -188,6 +228,13 @@ runs:
         envkey_GATSBY_FOOTER_SHOW_CREATOR: ${{ inputs.footer_show_creator }}
         envkey_GATSBY_FOOTER_CONTENT: ${{ inputs.footer_content }}
         envkey_GATSBY_GITHUB_ORGANIZATION_URL: ${{ inputs.github_organization_url }}
+        envkey_GATSBY_JUMBOTRON_TITLE: ${{ inputs.jumbotron_title }}
+        envkey_GATSBY_JUMBOTRON_SUBTITLE: ${{ inputs.jumbotron_subtitle }}
+        envkey_GATSBY_JUMBOTRON_DESCRIPTION: ${{ inputs.jumbotron_description }}
+        envkey_GATSBY_JUMBOTRON_SEARCHFORM: ${{ inputs.jumbotron_searchform }}
+        envkey_GATSBY_JUMBOTRON_ISCARD: ${{ inputs.jumbotron_iscard }}
+        envkey_GATSBY_JUMBOTRON_IMAGE_PLACEMENT: ${{ inputs.jumbotron_image_placement }}
+        envkey_GATSBY_JUMBOTRON_IMAGE_URL: ${{ inputs.jumbotron_image_url }}
 
         directory: pwa/static
         file_name: .env.production
