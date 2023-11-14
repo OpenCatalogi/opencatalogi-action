@@ -6,14 +6,13 @@ description:
     awards: []
     documentation: ''
     features: []
-    genericName: This repository holds the code for creating a organisation specific
-      open catalogi instance
+    genericName: This repository holds the code for creating a organisation specific open catalogi instance
     localisedName: ''
     longDescription: ''
     screenshots: []
     shortDescription: ''
     videos: []
-developmentStatus: development
+developmentStatus: stable
 landingURL: ''
 legal:
   authorsFile: ''
@@ -31,7 +30,8 @@ maintenance:
 name: opencatalogi-action
 nl:
   vng:
-    commonground: []
+    commonground:
+      layerType: process
     gemma: []
 organisation:
   description: "E\xE9n centrale plek voor hergebruik van informatietechnologie binnen\
