@@ -103,7 +103,7 @@ inputs:
     description: 'Shows the inloggen option'
     required: false
     type: boolean
-    default: fasle
+    default: false
   navbar_content:
     description: 'An link to the json file that manages the footer content'
     required: false
