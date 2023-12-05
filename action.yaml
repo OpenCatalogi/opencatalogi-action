@@ -214,6 +214,7 @@ runs:
         envkey_GATSBY_ME_URL: ${{ inputs.me_url }}
         envkey_GATSBY_API_URL: ${{ inputs.api_url }}
         envkey_GATSBY_ADMIN_URL: ${{ inputs.admin_url }}
+        envkey_GATSBY_PAGE_TITLE: ${{ inputs.page_title }}
         envkey_GATSBY_BASE_URL: ${{ inputs.base_url }}
         envkey_GATSBY_FRONTEND_URL: ${{ inputs.frontend_url }}
         envkey_GATSBY_LOGIN_REDIRECT: ${{ inputs.login_redirect }}
