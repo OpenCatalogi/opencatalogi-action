@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy Open Catalogi Github Page
-        uses: OpenCatalogi/opencatalogi-action@latest
+        uses: OpenCatalogi/opencatalogi-action@1.1.4
 ````
 
 In the above example an page is created or updated every night at 0:00, we advise this route becouse you will autmaticly suplied with fixes and new features. You can however also choose other options to trigger a page build
