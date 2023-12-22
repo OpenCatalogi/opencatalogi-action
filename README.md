@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy Open Catalogi Github Page
-        uses: OpenCatalogi/opencatalogi-action@main
+        uses: OpenCatalogi/opencatalogi-action@latest
 ````
 
 In the above example an page is created or updated every night at 0:00, we advise this route becouse you will autmaticly suplied with fixes and new features. You can however also choose other options to trigger a page build
@@ -115,9 +115,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy Product Github Page
-        uses: OpenCatalogi/productpage-action@main
+        uses: OpenCatalogi/productpage-action@latest
       - name: Update opencatalogi.yaml
-        uses: OpenCatalogi/publiccode-action@main
+        uses: OpenCatalogi/publiccode-action@latest
 ````
 
 [Read more](https://github.com/marketplace/actions/create-or-update-publiccode-yaml) about the publiccode action that also creates the opencatalogi.yaml
