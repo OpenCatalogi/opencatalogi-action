@@ -8,6 +8,11 @@ branding:
 
 inputs:
   # Build configuration
+  env_vars_set:
+    description: 'Whether to use the env variables set in this file, set to false to use env variables of opencatalogi config files'
+    required: true
+    type: boolean
+    default: true
   github_pages_branch:
     description: 'The banche on wish the github page wil be build'
     required: false
@@ -208,6 +213,7 @@ runs:
     - name: Make envfile
       uses: SpicyPizza/create-envfile@v2.0
       with:
+        envkey_GATSBY_ENV_VARS_SET: ${{ inputs.env_vars_set }}
         envkey_GATSBY_USE_GITHUB_REPOSITORY_NAME_AS_PATH_PREFIX: ${{ inputs.github_repository_name_as_prefix }}
         envkey_GATSBY_GITHUB_REPOSITORY_NAME: ${{ inputs.repository }}
         envkey_GATSBY_OPTIONAL_START_PAGE: ${{ inputs.start_page }}
