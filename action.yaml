@@ -7,32 +7,6 @@ branding:
   color: 'blue'
 
 inputs:
-  # Build configuration
-  env_vars_set:
-    description: 'Whether to use the env variables set in this file, set to false to use env variables of the OpenCatalogi config files'
-    required: true
-    type: boolean
-    default: true
-  github_pages_branch:
-    description: 'The branch on which the GitHub page will be build'
-    required: false
-    type: string
-    default: 'gh-pages'
-  github_repository_name_as_prefix:
-    description: 'Whether to use the GitHub repository name as a prefix, set to false when using a custom domain'
-    required: false
-    type: boolean
-    default: true
-  repository:
-    description: 'The GitHub repository to use (could be an external repository)'
-    required: false
-    type: string
-    default: ${{ github.event.repository.name }}
-  pull_from_branche:
-    description: 'The branch on which to base the build, e.g. main or development'
-    required: false
-    type: string
-    default: 'main'
 
   # Old settings (depracticed)
   me_url:
@@ -75,16 +49,6 @@ inputs:
     required: false
     type: boolean
     default: false
-  navbar_logo:
-    description: 'A base64 encoded SVG file or URL to the logo used in the main menu'
-    required: false
-    type: string
-    default: 'https://openwebconcept.nl/wp-content/themes/openwebconcept/assets/src/images/logo@2x.png'
-  footer_logo:
-    description: 'A base64 encoded SVG file or URL to the logo used in the footer'
-    required: false
-    type: string
-    default: 'https://openwebconcept.nl/wp-content/themes/openwebconcept/assets/src/images/logo@2x.png'
     
   # General
   favicon_logo:
@@ -114,6 +78,11 @@ inputs:
     required: false
     type: boolean
     default: false
+  navbar_logo:
+    description: 'A base64 encoded SVG file or URL to the logo used in the main menu'
+    required: false
+    type: string
+    default: 'https://openwebconcept.nl/wp-content/themes/openwebconcept/assets/src/images/logo@2x.png'
   navbar_content:
     description: 'A link to the JSON file that manages the footer content'
     required: false
@@ -159,6 +128,11 @@ inputs:
     default: "false"
 
   # Footer
+  footer_logo:
+    description: 'A base64 encoded SVG file or URL to the logo used in the footer'
+    required: false
+    type: string
+    default: 'https://openwebconcept.nl/wp-content/themes/openwebconcept/assets/src/images/logo@2x.png'
   footer_content:
     description: 'An link to the json file that manages the footer content'
     required: false
@@ -169,6 +143,33 @@ inputs:
     required: false
     type: boolean
     default: true
+
+  # Build configuration
+  env_vars_set:
+    description: 'Whether to use the env variables set in this file, set to false to use env variables of the OpenCatalogi config files'
+    required: true
+    type: boolean
+    default: true
+  github_pages_branch:
+    description: 'The branch on which the GitHub page will be build'
+    required: false
+    type: string
+    default: 'gh-pages'
+  github_repository_name_as_prefix:
+    description: 'Whether to use the GitHub repository name as a prefix, set to false when using a custom domain'
+    required: false
+    type: boolean
+    default: true
+  repository:
+    description: 'The GitHub repository to use (could be an external repository)'
+    required: false
+    type: string
+    default: ${{ github.event.repository.name }}
+  pull_from_branche:
+    description: 'The branch on which to base the build, e.g. main or development'
+    required: false
+    type: string
+    default: 'main'
 
   # Git Configuration
   git_name:
