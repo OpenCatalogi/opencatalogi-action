@@ -51,12 +51,11 @@ permissions:
 > ![Page Action done](docs/page_build_done.png)
 
 
-## Input
-
 ## Inputs
 
 | Input Name                          | Description                                                                                             | Required | Type    | Default Value                                                            |
 |------------------------------------|---------------------------------------------------------------------------------------------------------|----------|---------|--------------------------------------------------------------------------|
+| `env_vars_set`                     | Whether to use the env variables set in this file, set to false to use env variables of the OpenCatalogi config files   | Yes       | boolean  | `true`                                                               |
 | `github_pages_branch`               | The branch on which the GitHub page will be built (Optional)                                            | No       | string  | `gh-pages`                                                               |
 | `github_repository_name_as_prefix`  | Whether to use the GitHub repository name as a prefix (Optional)                                        | No       | boolean | `true`                                                                   |
 | `repository`                        | The GitHub repository to use (could be an external repository) (Optional)                               | No       | string  | `${{ github.event.repository.name }}`                                     |
