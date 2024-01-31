@@ -8,23 +8,28 @@ branding:
 
 inputs:
   # Build configuration
+  env_vars_set:
+    description: 'Whether to use the env variables set in this file, set to false to use env variables of the OpenCatalogi config files'
+    required: true
+    type: boolean
+    default: true
   github_pages_branch:
-    description: 'The banche on wish the github page wil be build'
+    description: 'The branch on which the GitHub page will be build'
     required: false
     type: string
     default: 'gh-pages'
   github_repository_name_as_prefix:
-    description: 'Whether to use the github repository name as a prefix, set to false when using a custom domain'
+    description: 'Whether to use the GitHub repository name as a prefix, set to false when using a custom domain'
     required: false
     type: boolean
     default: true
   repository:
-    description: 'The github repository to use (could be an external repository)'
+    description: 'The GitHub repository to use (could be an external repository)'
     required: false
     type: string
     default: ${{ github.event.repository.name }}
   pull_from_branche:
-    description: 'The branche on witch to base the build e.g. main or development'
+    description: 'The branch on which to base the build, e.g. main or development'
     required: false
     type: string
     default: 'main'
@@ -65,10 +70,25 @@ inputs:
     required: false
     type: string
     default: 'https://admin.opencatalogi.nl'
-
+  arrow_breadcrumbs:
+    description: 'Whether to use arrow breadcrumbs instead of the normal breadcrumbs'
+    required: false
+    type: boolean
+    default: false
+  navbar_logo:
+    description: 'A base64 encoded SVG file or URL to the logo used in the main menu'
+    required: false
+    type: string
+    default: 'https://openwebconcept.nl/wp-content/themes/openwebconcept/assets/src/images/logo@2x.png'
+  footer_logo:
+    description: 'A base64 encoded SVG file or URL to the logo used in the footer'
+    required: false
+    type: string
+    default: 'https://openwebconcept.nl/wp-content/themes/openwebconcept/assets/src/images/logo@2x.png'
+    
   # General
   favicon_logo:
-    description: 'An base64 encoded svg file or url to the logo used as favicon'
+    description: 'A base64 encoded SVG file or URL to the logo used as favicon'
     required: false
     type: string
     default: 'https://openwebconcept.nl/wp-content/themes/openwebconcept/assets/src/images/logo@2x.png'
@@ -78,34 +98,24 @@ inputs:
     type: string
     default: ${{ github.event.repository.name }}
   nl_design_theme_classname:
-    description: 'the class name of the desired nl design theme'
+    description: 'The class name of the desired NL design theme'
     required: false
     type: string
     default: 'open-webconcept-theme'
-  arrow_breadcrumbs:
-    description: 'whether to use arrow breadcrums instead of the normal breadcrumbs'
-    required: false
-    type: boolean
-    default: false
   start_page:
-    description: 'When given shows a readme file instead of the normal start page'
+    description: 'When given, shows a readme file instead of the normal start page'
     required: false
     type: string
     default: 'false'
 
   # Header
-  navbar_logo:
-    description: 'An base64 encoded svg file or url to the logo used in the main menu'
-    required: false
-    type: string
-    default: 'https://openwebconcept.nl/wp-content/themes/openwebconcept/assets/src/images/logo@2x.png'
   navbar_show_login:
-    description: 'Shows the inloggen option'
+    description: 'Shows the login option'
     required: false
     type: boolean
     default: false
   navbar_content:
-    description: 'An link to the json file that manages the footer content'
+    description: 'A link to the JSON file that manages the footer content'
     required: false
     type: string
     default: 'https://raw.githubusercontent.com/OpenCatalogi/web-app/348679b7537b20e51767dfdc6086349602afe219/pwa/src/templates/templateParts/header/HeaderContent.json'
@@ -117,7 +127,7 @@ inputs:
     type: string
     default: ${{ github.event.repository.name }}
   jumbotron_subtitle:
-    description: 'The (short) subtitle used in  the jumbotron'
+    description: 'The (short) subtitle used in the jumbotron'
     required: false
     type: string
     default: 'Product page'
@@ -143,24 +153,19 @@ inputs:
     type: string
     default: "false"
   jumbotron_image_url:
-    description: 'An base64 encoded svg file or url to the logo used in the jumbotron'
+    description: 'A base64 encoded SVG file or URL to the logo used in the jumbotron'
     required: false
     type: string
     default: "false"
 
   # Footer
-  footer_logo:
-    description: 'An base64 encoded svg file or url to the logo used in the footer'
-    required: false
-    type: string
-    default: 'https://openwebconcept.nl/wp-content/themes/openwebconcept/assets/src/images/logo@2x.png'
   footer_content:
     description: 'An link to the json file that manages the footer content'
     required: false
     type: string
     default: 'https://raw.githubusercontent.com/OpenCatalogi/web-app/25995205e1dbb043822d1c58c5c23f8e6f77ff7e/pwa/src/templates/templateParts/footer/FooterContent.json'
   footer_show_creator:
-    description: 'Shows the <> with love from conduction link'
+    description: 'Shows the "<> with love from Conduction" link'
     required: false
     type: boolean
     default: true
@@ -177,12 +182,12 @@ inputs:
     type: string
     default: 'bot@opencatalogi.nl'
   git_commit_message:
-    description: 'The description for the  commit'
+    description: 'The description for the commit'
     required: false
     type: string
     default: ${{ github.event.repository.html_url }}
   github_organization_url:
-    description: 'The repository to wich the results are limited (used to only look in your own organisation)'
+    description: 'The repository to which the results are limited (used to only look in your own organization)'
     required: false
     type: string
     default: 'https://github.com/${{ github.repository_owner }}'
@@ -209,6 +214,7 @@ runs:
     - name: Make envfile
       uses: SpicyPizza/create-envfile@v2.0
       with:
+        envkey_GATSBY_ENV_VARS_SET: ${{ inputs.env_vars_set }}
         envkey_GATSBY_USE_GITHUB_REPOSITORY_NAME_AS_PATH_PREFIX: ${{ inputs.github_repository_name_as_prefix }}
         envkey_GATSBY_GITHUB_REPOSITORY_NAME: ${{ inputs.repository }}
         envkey_GATSBY_OPTIONAL_START_PAGE: ${{ inputs.start_page }}
