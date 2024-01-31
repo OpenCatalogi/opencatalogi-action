@@ -126,6 +126,7 @@ inputs:
     required: false
     type: string
     default: ${{ github.event.repository.description }}
+
   jumbotron_searchform:
     description: 'Whether or not to display the search form'
     required: false
@@ -164,7 +165,7 @@ inputs:
     type: boolean
     default: true
 
-  # git configuration
+  # Git Configuration
   git_name:
     description: 'Git name configuration for the commit'
     required: false
@@ -267,7 +268,7 @@ runs:
       with:
         branch: ${{ inputs.github_pages_branch }}
         folder: pwa/public
-        git-config-name: ${{ inputs.git-name }}
-        git-config-email: ${{ inputs.git-mail }}
-        commit-message: ${{ inputs.git-commit-message }}
+        git-config-name: ${{ inputs.git_name }}
+        git-config-email: ${{ inputs.git_mail }}
+        commit-message: ${{ inputs.git_commit_message }}
 
