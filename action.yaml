@@ -9,7 +9,7 @@ branding:
 inputs:
   # Build configuration
   env_vars_set:
-    description: 'Whether to use the env variables set in this file, set to false to use env variables of opencatalogi config files'
+    description: 'Whether to use the env variables set in this file, set to false to use env variables of the OpenCatalogi config files'
     required: true
     type: boolean
     default: true
