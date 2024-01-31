@@ -7,49 +7,6 @@ branding:
   color: 'blue'
 
 inputs:
-
-  # Old settings (depracticed)
-  me_url:
-    description: 'The me (profile) url used'
-    required: false
-    type: string
-    default: 'https://api.opencatalogi.nl/api/users/me'
-  api_url:
-    description: 'The location of the open catalogi api (change if you are running your own api)'
-    required: false
-    type: string
-    default: 'https://api.opencatalogi.nl/api'
-  admin_url:
-    description: 'The admin (dashboard) url used'
-    required: false
-    type: string
-    default: 'https://api.opencatalogi.nl/admin'
-  base_url:
-    description: 'The BASE location of the open catalogi api (change if you are running your own api)'
-    required: false
-    type: string
-    default: 'https://api.opencatalogi.nl'
-  frontend_url:
-    description: 'the location (url) of this open catalogi installation'
-    required: false
-    type: string
-    default: 'https://api.opencatalogi.nl'
-  login_redirect:
-    description: 'publiccode.yml path'
-    required: false
-    type: string
-    default: 'vault'
-  admin_dashboard_url:
-    description: 'the location of the pen catalogi dashboard'
-    required: false
-    type: string
-    default: 'https://admin.opencatalogi.nl'
-  arrow_breadcrumbs:
-    description: 'Whether to use arrow breadcrumbs instead of the normal breadcrumbs'
-    required: false
-    type: boolean
-    default: false
-    
   # General
   favicon_logo:
     description: 'A base64 encoded SVG file or URL to the logo used as favicon'
@@ -143,6 +100,48 @@ inputs:
     required: false
     type: boolean
     default: true
+
+  # Open Catalogi / Old settings (depracticed)
+  me_url:
+    description: 'The me (profile) url used'
+    required: false
+    type: string
+    default: 'https://api.opencatalogi.nl/api/users/me'
+  api_url:
+    description: 'The location of the open catalogi api (change if you are running your own api)'
+    required: false
+    type: string
+    default: 'https://api.opencatalogi.nl/api'
+  admin_url:
+    description: 'The admin (dashboard) url used'
+    required: false
+    type: string
+    default: 'https://api.opencatalogi.nl/admin'
+  base_url:
+    description: 'The BASE location of the open catalogi api (change if you are running your own api)'
+    required: false
+    type: string
+    default: 'https://api.opencatalogi.nl'
+  frontend_url:
+    description: 'the location (url) of this open catalogi installation'
+    required: false
+    type: string
+    default: 'https://api.opencatalogi.nl'
+  login_redirect:
+    description: 'publiccode.yml path'
+    required: false
+    type: string
+    default: 'vault'
+  admin_dashboard_url:
+    description: 'the location of the pen catalogi dashboard'
+    required: false
+    type: string
+    default: 'https://admin.opencatalogi.nl'
+  arrow_breadcrumbs:
+    description: 'Whether to use arrow breadcrumbs instead of the normal breadcrumbs'
+    required: false
+    type: boolean
+    default: false
 
   # Build configuration
   env_vars_set:
