@@ -29,7 +29,7 @@ inputs:
     type: string
     default: 'false'
   filter_rating:
-    description: 'When given, shows a readme file instead of the normal start page'
+    description: 'What kind of rating must be shown, OpenCatalogi or Commonground'
     required: false
     type: string
     default: 'OpenCatalogi'
