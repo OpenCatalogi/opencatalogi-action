@@ -28,6 +28,11 @@ inputs:
     required: false
     type: string
     default: 'false'
+  filter_rating:
+    description: 'What kind of rating must be shown, OpenCatalogi or Commonground'
+    required: false
+    type: string
+    default: 'OpenCatalogi'
 
   # Header
   navbar_show_login:
@@ -46,7 +51,7 @@ inputs:
     type: string
     default: 'https://raw.githubusercontent.com/OpenCatalogi/web-app/348679b7537b20e51767dfdc6086349602afe219/pwa/src/templates/templateParts/header/HeaderContent.json'
 
-  # Jumbotran
+  # Jumbotron
   jumbotron_title:
     description: 'The title of the jumbotron'
     required: false
@@ -218,6 +223,7 @@ runs:
         envkey_GATSBY_USE_GITHUB_REPOSITORY_NAME_AS_PATH_PREFIX: ${{ inputs.github_repository_name_as_prefix }}
         envkey_GATSBY_GITHUB_REPOSITORY_NAME: ${{ inputs.repository }}
         envkey_GATSBY_OPTIONAL_START_PAGE: ${{ inputs.start_page }}
+        envkey_GATSBY_FILTER_RATING: ${{ inputs.filter_rating }}
         envkey_GATSBY_ME_URL: ${{ inputs.me_url }}
         envkey_GATSBY_API_URL: ${{ inputs.api_url }}
         envkey_GATSBY_ADMIN_URL: ${{ inputs.admin_url }}
