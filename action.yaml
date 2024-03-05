@@ -29,7 +29,7 @@ inputs:
     type: string
     default: 'false'
 
-  # Filter
+  # Filters
   filter_forks:
     description: 'If you want to have the filter forks displayed, set to false to not show the filter'
     required: false
