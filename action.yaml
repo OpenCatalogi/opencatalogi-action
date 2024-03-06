@@ -44,7 +44,7 @@ inputs:
     description: 'The default value of the shown rating. OpenCatalogi:("0"-"24"), Commonground:("0"-"4"). If filter_rating is set to "false" the default value won't do anything.'
     required: false
     type: string
-    default: '16'
+    default: '0'
   filter_layer:
     description: 'If you want to have the filter layer displayed, set to "false" to not show this filter, to set a default value set to "'["{value1}", "{value2}"]'" values: ("interface" | "process", "integration", "service", "data"), leave it empty to show the filter but not have it active'
     required: false
