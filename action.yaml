@@ -90,8 +90,8 @@ inputs:
     required: false
     type: string
     default: ' '
-  filter_software_types:
-    description: 'If you want to have the filter software types displayed, set to "false" to not show this filter, to set a default value set the value to one of the software types found [here](https://github.com/OpenCatalogi/web-app/blob/main/pwa/src/data/filters/softwareType.ts), leave it empty to show the filter but not have it active'
+  filter_software_type:
+    description: 'If you want to have the filter software type displayed, set to "false" to not show this filter, to set a default value set the value to one of the software type found [here](https://github.com/OpenCatalogi/web-app/blob/main/pwa/src/data/filters/softwareType.ts), leave it empty to show the filter but not have it active'
     required: false
     type: string
     default: ' '
@@ -307,7 +307,7 @@ runs:
         envkey_GATSBY_FILTER_MAINTENANCE_TYPES: ${{ inputs.filter_maintenance_types }}
         envkey_GATSBY_FILTER_LICENSE: ${{ inputs.filter_license }}
         envkey_GATSBY_FILTER_BUSINESS_FUNCTIONS: ${{ inputs.filter_business_functions }}
-        envkey_GATSBY_FILTER_SOFTWARE_TYPES: ${{ inputs.filter_types }}
+        envkey_GATSBY_FILTER_SOFTWARE_TYPE: ${{ inputs.filter_type }}
         envkey_GATSBY_FILTER_BUSINESS_SERVICES: ${{ inputs.filter_business_services }}
         envkey_GATSBY_FILTER_REFERENCE_COMPONENTS: ${{ inputs.filter_reference_components }}
         envkey_GATSBY_ME_URL: ${{ inputs.me_url }}
