@@ -31,22 +31,27 @@ inputs:
 
   # Filters
   filter_forks:
-    description: 'If you want to have the filter forks displayed, set to false to not show the filter'
+    description: 'Remove forked repositories from search, set to "false" to not show this filter, set to "true" to show this filter and have it active as default, leave it empty to show the filter but not have it active'
     required: false
     type: string
     default: ' '
   filter_rating:
-    description: 'What kind of rating must be shown, OpenCatalogi or Commonground'
+    description: 'The rating version that will be used, "OpenCatalogi" or "Commonground" set to "false" to not show this filter'
     required: false
     type: string
     default: 'OpenCatalogi'
+  filter_rating_default:
+    description: 'The default value of the shown rating. OpenCatalogi:("0"-"24"), Commonground:("0"-"4"). If filter_rating is set to "false" the default value won't do anything.'
+    required: false
+    type: string
+    default: '16'
   filter_layer:
-    description: 'If you want to have the filter layer displayed, set to false to not show the filter'
+    description: 'If you want to have the filter layer displayed, set to "false" to not show this filter, to set a default value set to "'["{value1}", "{value2}"]'" values: ("interface" | "process", "integration", "service", "data"), leave it empty to show the filter but not have it active'
     required: false
     type: string
     default: ' '
   filter_upl:
-    description: 'If you want to have the filter upl displayed, set to false to not show the filter'
+    description: 'If you want to have the filter upl displayed, set to "false" to not show this filter, to set a default value set to "'["{value1}", "{value2}"]'" values can be found [here](https://github.com/OpenCatalogi/web-app/blob/main/pwa/src/data/filters/upls.ts), leave it empty to show the filter but not have it active'
     required: false
     type: string
     default: ' '
@@ -56,47 +61,47 @@ inputs:
     type: string
     default: ' '
   filter_category:
-    description: 'If you want to have the filter category displayed, set to false to not show the filter'
+    description: 'If you want to have the filter category displayed, set to "false" to not show this filter, to set a default value set the value to one of the categories found [here](https://github.com/OpenCatalogi/web-app/blob/main/pwa/src/data/filters/categories.ts), leave it empty to show the filter but not have it active'
     required: false
     type: string
     default: ' '
   filter_platforms:
-    description: 'If you want to have the filter platforms displayed, set to false to not show the filter'
+    description: 'If you want to have the filter platforms displayed, set to "false" to not show this filter, to set a default value set to "'["{value1}", "{value2}"]'" values: ("web", "windows", "mac", "linux", "ios", "android"), leave it empty to show the filter but not have it active'
     required: false
     type: string
     default: ' '
   filter_status:
-    description: 'If you want to have the filter status displayed, set to false to not show the filter'
+    description: 'If you want to have the filter status displayed, set to "false" to not show this filter, to set a default value set the value to one of the status ("concept", "development", "beta", "stable", "obsolete", "hideObsolete"), leave it empty to show the filter but not have it active'
     required: false
     type: string
     default: ' '
   filter_maintenance_types:
-    description: 'If you want to have the filter maintenance types displayed, set to false to not show the filter'
+    description: 'If you want to have the filter status maintenance types, set to "false" to not show this filter, to set a default value set the value to one of the maintenancy types ("internal", "contract", "community"), leave it empty to show the filter but not have it active'
     required: false
     type: string
     default: ' '
   filter_license:
-    description: 'If you want to have the filter license displayed, set to false to not show the filter'
+    description: 'If you want to have the filter license displayed, set to "false" to not show this filter, to set a default value set the value to one of the licenses found [here](https://github.com/OpenCatalogi/web-app/blob/main/pwa/src/data/filters/licenses.ts), leave it empty to show the filter but not have it active'
     required: false
     type: string
     default: ' '
   filter_business_fuctions:
-    description: 'If you want to have the filter business functions displayed, set to false to not show the filter'
+    description: 'If you want to have the filter business functions displayed, set to "false" to not show this filter, to set a default value set to "'["{value1}", "{value2}"]'" values can be found [here](https://github.com/OpenCatalogi/web-app/blob/main/pwa/src/data/filters/bedrijfsfuncties.ts), leave it empty to show the filter but not have it active'
     required: false
     type: string
     default: ' '
   filter_software_types:
-    description: 'If you want to have the filter software types displayed, set to false to not show the filter'
+    description: 'If you want to have the filter software types displayed, set to "false" to not show this filter, to set a default value set the value to one of the software types found [here](https://github.com/OpenCatalogi/web-app/blob/main/pwa/src/data/filters/softwareType.ts), leave it empty to show the filter but not have it active'
     required: false
     type: string
     default: ' '
   filter_business_services:
-    description: 'If you want to have the filter business services displayed, set to false to not show the filter'
+    description: 'If you want to have the filter business services displayed, set to "false" to not show this filter, to set a default value set to "'["{value1}", "{value2}"]'" values can be found [here](https://github.com/OpenCatalogi/web-app/blob/main/pwa/src/data/filters/bedrijfsservices.ts), leave it empty to show the filter but not have it active'
     required: false
     type: string
     default: ' '
   filter_reference_components:
-    description: 'If you want to have the filter reference components displayed, set to false to not show the filter'
+    description: 'If you want to have the filter reference components displayed, set to "false" to not show this filter, to set a default value set to "'["{value1}", "{value2}"]'" values can be found [here](https://github.com/OpenCatalogi/web-app/blob/main/pwa/src/data/filters/referentieComponenten.ts), leave it empty to show the filter but not have it active'
     required: false
     type: string
     default: ' '
@@ -292,6 +297,7 @@ runs:
         envkey_GATSBY_OPTIONAL_START_PAGE: ${{ inputs.start_page }}
         envkey_GATSBY_FILTER_FORKS: ${{ inputs.filter_forks }}
         envkey_GATSBY_FILTER_RATING: ${{ inputs.filter_rating }}
+        envkey_GATSBY_FILTER_RATING_DEFAULT: ${{ inputs.filter_rating_default }}
         envkey_GATSBY_FILTER_LAYER: ${{ inputs.filter_layer }}
         envkey_GATSBY_FILTER_UPL: ${{ inputs.filter_upl }}
         envkey_GATSBY_FILTER_ORGANISATION: ${{ inputs.filter_organisation }}
