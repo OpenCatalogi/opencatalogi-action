@@ -80,7 +80,7 @@ inputs:
     required: false
     type: string
     default: ' '
-  filter_business_fuctions:
+  filter_business_functions:
     description: 'If you want to have the filter business functions displayed, set to false to not show the filter'
     required: false
     type: string
