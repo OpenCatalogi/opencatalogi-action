@@ -85,7 +85,7 @@ inputs:
     required: false
     type: string
     default: ' '
-  filter_business_fuctions:
+  filter_business_functions:
     description: 'If you want to have the filter business functions displayed, set to "false" to not show this filter, to set a default value set to "'["{value1}", "{value2}"]'" values can be found [here](https://github.com/OpenCatalogi/web-app/blob/main/pwa/src/data/filters/bedrijfsfuncties.ts), leave it empty to show the filter but not have it active'
     required: false
     type: string
