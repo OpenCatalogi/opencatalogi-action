@@ -80,7 +80,7 @@ inputs:
     required: false
     type: string
     default: ' '
-  filter_business_fuctions:
+  filter_business_functions:
     description: 'If you want to have the filter business functions displayed, set to false to not show the filter'
     required: false
     type: string
@@ -128,33 +128,12 @@ inputs:
     description: 'The (short) subtitle used in the jumbotron'
     required: false
     type: string
-    default: 'Product page'
+    default: 'false'
   jumbotron_description:
     description: 'The (long) description included in the jumbotron)'
     required: false
     type: string
     default: ${{ github.event.repository.description }}
-
-  jumbotron_searchform:
-    description: 'Whether or not to display the search form'
-    required: false
-    type: boolean
-    default: false
-  jumbotron_iscard:
-    description: 'Put the content o the jumbotron within a card'
-    required: false
-    type: boolean
-    default: false
-  jumbotron_image_placement:
-    description: 'The position of the jumbotron image ("false" | "background" | "right" | "left")'
-    required: false
-    type: string
-    default: "false"
-  jumbotron_image_url:
-    description: 'A base64 encoded SVG file or URL to the logo used in the jumbotron'
-    required: false
-    type: string
-    default: "false"
 
   # Footer
   footer_logo:
