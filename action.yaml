@@ -46,12 +46,12 @@ inputs:
     type: string
     default: '0'
   filter_layer:
-    description: 'If you want to have the filter layer displayed, set it to "false" to not show this filter, to set a default value set to "'["{value1}", "{value2}"]'" values: ("interface", "process", "integration", "service", "data"), leave it empty to show the filter but not have it active'
+    description: 'If you want to have the filter layer displayed, set it to "false" to not show this filter, to set a default value set to "["{value1}", "{value2}"]" values: ("interface", "process", "integration", "service", "data"), leave it empty to show the filter but not have it active'
     required: false
     type: string
     default: ' '
   filter_upl:
-    description: 'If you want to have the filter upl displayed, set it to "false" to not show this filter, to set a default value set to "'["{value1}", "{value2}"]'" values can be found [here](https://github.com/OpenCatalogi/web-app/blob/main/pwa/src/data/filters/upls.ts), leave it empty to show the filter but not have it active'
+    description: 'If you want to have the filter upl displayed, set it to "false" to not show this filter, to set a default value set to "["{value1}", "{value2}"]" values can be found [here](https://github.com/OpenCatalogi/web-app/blob/main/pwa/src/data/filters/upls.ts), leave it empty to show the filter but not have it active'
     required: false
     type: string
     default: ' '
@@ -66,7 +66,7 @@ inputs:
     type: string
     default: ' '
   filter_platforms:
-    description: 'If you want to have the filter platforms displayed, set it to "false" to not show this filter, to set a default value set to "'["{value1}", "{value2}"]'" values: ("web", "windows", "mac", "linux", "ios", "android"), leave it empty to show the filter but not have it active'
+    description: 'If you want to have the filter platforms displayed, set it to "false" to not show this filter, to set a default value set to "["{value1}", "{value2}"]" values: ("web", "windows", "mac", "linux", "ios", "android"), leave it empty to show the filter but not have it active'
     required: false
     type: string
     default: ' '
@@ -86,7 +86,7 @@ inputs:
     type: string
     default: ' '
   filter_business_functions:
-    description: 'If you want to have the filter business functions displayed, set it to "false" to not show this filter, to set a default value set to "'["{value1}", "{value2}"]'" values can be found [here](https://github.com/OpenCatalogi/web-app/blob/main/pwa/src/data/filters/bedrijfsfuncties.ts), leave it empty to show the filter but not have it active'
+    description: 'If you want to have the filter business functions displayed, set it to "false" to not show this filter, to set a default value set to "["{value1}", "{value2}"]" values can be found [here](https://github.com/OpenCatalogi/web-app/blob/main/pwa/src/data/filters/bedrijfsfuncties.ts), leave it empty to show the filter but not have it active'
     required: false
     type: string
     default: ' '
@@ -96,12 +96,12 @@ inputs:
     type: string
     default: ' '
   filter_business_services:
-    description: 'If you want to have the filter business services displayed, set it to "false" to not show this filter, to set a default value set to "'["{value1}", "{value2}"]'" values can be found [here](https://github.com/OpenCatalogi/web-app/blob/main/pwa/src/data/filters/bedrijfsservices.ts), leave it empty to show the filter but not have it active'
+    description: 'If you want to have the filter business services displayed, set it to "false" to not show this filter, to set a default value set to "["{value1}", "{value2}"]" values can be found [here](https://github.com/OpenCatalogi/web-app/blob/main/pwa/src/data/filters/bedrijfsservices.ts), leave it empty to show the filter but not have it active'
     required: false
     type: string
     default: ' '
   filter_reference_components:
-    description: 'If you want to have the filter reference components displayed, set it to "false" to not show this filter, to set a default value set to "'["{value1}", "{value2}"]'" values can be found [here](https://github.com/OpenCatalogi/web-app/blob/main/pwa/src/data/filters/referentieComponenten.ts), leave it empty to show the filter but not have it active'
+    description: 'If you want to have the filter reference components displayed, set it to "false" to not show this filter, to set a default value set to "["{value1}", "{value2}"]" values can be found [here](https://github.com/OpenCatalogi/web-app/blob/main/pwa/src/data/filters/referentieComponenten.ts), leave it empty to show the filter but not have it active'
     required: false
     type: string
     default: ' '
@@ -286,7 +286,7 @@ runs:
         envkey_GATSBY_FILTER_MAINTENANCE_TYPES: ${{ inputs.filter_maintenance_types }}
         envkey_GATSBY_FILTER_LICENSE: ${{ inputs.filter_license }}
         envkey_GATSBY_FILTER_BUSINESS_FUNCTIONS: ${{ inputs.filter_business_functions }}
-        envkey_GATSBY_FILTER_SOFTWARE_TYPES: ${{ inputs.filter_software_types }}
+        envkey_GATSBY_FILTER_SOFTWARE_TYPE: ${{ inputs.filter_software_type }}
         envkey_GATSBY_FILTER_BUSINESS_SERVICES: ${{ inputs.filter_business_services }}
         envkey_GATSBY_FILTER_REFERENCE_COMPONENTS: ${{ inputs.filter_reference_components }}
         envkey_GATSBY_ME_URL: ${{ inputs.me_url }}
