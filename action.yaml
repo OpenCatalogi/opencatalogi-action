@@ -286,7 +286,7 @@ runs:
         envkey_GATSBY_FILTER_MAINTENANCE_TYPES: ${{ inputs.filter_maintenance_types }}
         envkey_GATSBY_FILTER_LICENSE: ${{ inputs.filter_license }}
         envkey_GATSBY_FILTER_BUSINESS_FUNCTIONS: ${{ inputs.filter_business_functions }}
-        envkey_GATSBY_FILTER_SOFTWARE_TYPES: ${{ inputs.filter_software_types }}
+        envkey_GATSBY_FILTER_SOFTWARE_TYPE: ${{ inputs.filter_software_type }}
         envkey_GATSBY_FILTER_BUSINESS_SERVICES: ${{ inputs.filter_business_services }}
         envkey_GATSBY_FILTER_REFERENCE_COMPONENTS: ${{ inputs.filter_reference_components }}
         envkey_GATSBY_ME_URL: ${{ inputs.me_url }}
