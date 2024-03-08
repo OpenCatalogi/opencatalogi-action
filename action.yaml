@@ -41,7 +41,7 @@ inputs:
     type: string
     default: 'OpenCatalogi'
   filter_rating_default:
-    description: 'The default value of the shown rating. OpenCatalogi:("0" to "24"), Commonground:("0" to "4"). If filter_rating is set to "false" the default value won't do anything.'
+    description: 'The default value of the shown rating. OpenCatalogi:("0"-"24"), Commonground:("0"-"4"). If filter_rating is set to "false" the default value will not do anything.'
     required: false
     type: string
     default: '0'
