@@ -303,10 +303,6 @@ runs:
         envkey_GATSBY_JUMBOTRON_TITLE: ${{ inputs.jumbotron_title }}
         envkey_GATSBY_JUMBOTRON_SUBTITLE: ${{ inputs.jumbotron_subtitle }}
         envkey_GATSBY_JUMBOTRON_DESCRIPTION: ${{ inputs.jumbotron_description }}
-        envkey_GATSBY_JUMBOTRON_SEARCHFORM: ${{ inputs.jumbotron_searchform }}
-        envkey_GATSBY_JUMBOTRON_ISCARD: ${{ inputs.jumbotron_iscard }}
-        envkey_GATSBY_JUMBOTRON_IMAGE_PLACEMENT: ${{ inputs.jumbotron_image_placement }}
-        envkey_GATSBY_JUMBOTRON_IMAGE_URL: ${{ inputs.jumbotron_image_url }}
 
         directory: pwa/static
         file_name: .env.production
