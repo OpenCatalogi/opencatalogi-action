@@ -281,7 +281,7 @@ runs:
         envkey_GATSBY_FILTER_UPL: ${{ inputs.filter_upl }}
         envkey_GATSBY_FILTER_ORGANISATION: ${{ inputs.filter_organisation }}
         envkey_GATSBY_FILTER_CATEGORY: ${{ inputs.filter_category }}
-        envkey_GATSBY_FILTER_PLATFROMS: ${{ inputs.filter_platforms }}
+        envkey_GATSBY_FILTER_PLATFORMS: ${{ inputs.filter_platforms }}
         envkey_GATSBY_FILTER_STATUS: ${{ inputs.filter_status }}
         envkey_GATSBY_FILTER_MAINTENANCE_TYPES: ${{ inputs.filter_maintenance_types }}
         envkey_GATSBY_FILTER_LICENSE: ${{ inputs.filter_license }}
