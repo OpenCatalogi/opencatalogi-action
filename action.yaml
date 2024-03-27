@@ -28,6 +28,11 @@ inputs:
     required: false
     type: string
     default: 'false'
+  commonground_charts:
+    description: 'Show commonground charts'
+    required: false
+    type: string
+    default: 'false'
 
   # Filters
   filter_forks:
@@ -274,6 +279,7 @@ runs:
         envkey_GATSBY_USE_GITHUB_REPOSITORY_NAME_AS_PATH_PREFIX: ${{ inputs.github_repository_name_as_prefix }}
         envkey_GATSBY_GITHUB_REPOSITORY_NAME: ${{ inputs.repository }}
         envkey_GATSBY_OPTIONAL_START_PAGE: ${{ inputs.start_page }}
+        envkey_GATSBY_COMMONGROUND_CHARTS: ${{ inputs.commonground_charts }}
         envkey_GATSBY_FILTER_FORKS: ${{ inputs.filter_forks }}
         envkey_GATSBY_FILTER_RATING: ${{ inputs.filter_rating }}
         envkey_GATSBY_FILTER_RATING_DEFAULT: ${{ inputs.filter_rating_default }}
