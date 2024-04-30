@@ -305,6 +305,7 @@ runs:
         envkey_GATSBY_NL_DESIGN_THEME_CLASSNAME: ${{ inputs.nl_design_theme_classname }}
         envkey_GATSBY_ARROW_BREADCRUMBS: ${{ inputs.arrow_breadcrumbs }}
         envkey_GATSBY_FAVICON_URL: ${{ inputs.favicon_logo }}
+        envkey_GATSBY_PAGE_TITLE: ${{ inputs.page_title }}
         envkey_GATSBY_HEADER_LOGO_URL: ${{ inputs.navbar_logo }}
         envkey_GATSBY_HEADER_SHOW_LOGIN: ${{ inputs.navbar_show_login }}
         envkey_GATSBY_HEADER_CONTENT: ${{ inputs.navbar_content }}
