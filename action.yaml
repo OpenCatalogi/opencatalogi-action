@@ -173,6 +173,11 @@ inputs:
     required: false
     type: string
     default: 'https://api.opencatalogi.nl/api'
+  nextcloud_api_url:
+    description: 'The location of the nextcloud open catalogi api (change if you are running your own api)'
+    required: false
+    type: string
+    default: 'https://directory.opencatalogi.nl/index.php/apps/opencatalogi/api'
   admin_url:
     description: 'The admin (dashboard) url used'
     required: false
@@ -297,6 +302,7 @@ runs:
         envkey_GATSBY_FILTER_REFERENCE_COMPONENTS: ${{ inputs.filter_reference_components }}
         envkey_GATSBY_ME_URL: ${{ inputs.me_url }}
         envkey_GATSBY_API_URL: ${{ inputs.api_url }}
+        envkey_GATSBY_NEXTCLOUD_API_URL: ${{ inputs.nextcloud_api_url }}
         envkey_GATSBY_ADMIN_URL: ${{ inputs.admin_url }}
         envkey_GATSBY_BASE_URL: ${{ inputs.base_url }}
         envkey_GATSBY_FRONTEND_URL: ${{ inputs.frontend_url }}
